@@ -9,11 +9,15 @@ namespace Cake.Yaml.Tests
     {
         FakeCakeContext context;
 
-        const string SERIALIZED_YAML = "Name: Testing\nItems:\n- One\n- Two\n- Three\nKeysAndValues:\n  Key: Value\n  AnotherKey: AnotherValue\n  Such: Wow\nNested:\n  Value: 7.3\nMultiples:\n- Id: 1\n  Value: 14.6\n- Id: 2\n  Value: 29.2\n- Id: 3\n  Value: 58.4\n";
+        const string SERIALIZED_YAML_DATA = "Name: Testing\nItems:\n- One\n- Two\n- Three\nKeysAndValues:\n  Key: Value\n  AnotherKey: AnotherValue\n  Such: Wow\nNested:\n  Value: 7.3\nMultiples:\n- Id: 1\n  Value: 14.6\n- Id: 2\n  Value: 29.2\n- Id: 3\n  Value: 58.4\n";
+
+        string SERIALIZED_YAML = "";
 
         [SetUp]
         public void Setup ()
         {
+            SERIALIZED_YAML = SERIALIZED_YAML_DATA.Replace ("\n", Environment.NewLine);
+
             context = new FakeCakeContext ();           
         }
 
