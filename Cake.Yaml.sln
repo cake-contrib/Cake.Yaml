@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Yaml", "Cake.Yaml\Cake.Yaml.csproj", "{AC35C5AB-6E21-435E-BE15-77939DA20523}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.Yaml.Tests", "Cake.Yaml.Tests\Cake.Yaml.Tests.csproj", "{F60E237B-5678-4C84-99DB-47099E1E8041}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC35C5AB-6E21-435E-BE15-77939DA20523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC35C5AB-6E21-435E-BE15-77939DA20523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC35C5AB-6E21-435E-BE15-77939DA20523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC35C5AB-6E21-435E-BE15-77939DA20523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F60E237B-5678-4C84-99DB-47099E1E8041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F60E237B-5678-4C84-99DB-47099E1E8041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F60E237B-5678-4C84-99DB-47099E1E8041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F60E237B-5678-4C84-99DB-47099E1E8041}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
