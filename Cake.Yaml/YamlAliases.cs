@@ -52,9 +52,11 @@ namespace Cake.Yaml
             T result = default(T);
 
             var d = new YamlDotNet.Serialization.Deserializer ();
-            using (var tr = new StringReader (yaml))
-                result = d.Deserialize<T> (tr);
-
+            using (var tr = new StringReader(yaml))
+            {
+                var reader = new EventReader(new MergingParser(new Parser(tr)));
+                result = d.Deserialize<T>(reader);
+            }
             return result;
         }
 

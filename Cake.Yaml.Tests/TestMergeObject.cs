@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cake.Yaml.Tests
 {
-    class TestMergeObject
+    public class TestMergeObject
     {
         public string Item1 { get; set; }
         public string Item2 { get; set; }

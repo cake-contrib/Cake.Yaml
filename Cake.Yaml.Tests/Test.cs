@@ -14,6 +14,9 @@ namespace Cake.Yaml.Tests
 
         string SERIALIZED_YAML = "";
 
+        const string SERIALIZED_YAML_MERGE_DATA = "default: &default\n Item1: item1\n Item2: item2\n\nmerged:\n <<: *default\n Item3: test item3\n\nnodefault:\n Item1: nodef-item1\n Item2: nodef-item2\n Item3: nodef-item3\n";
+
+
         [SetUp]
         public void Setup ()
         {
@@ -72,26 +75,35 @@ namespace Cake.Yaml.Tests
         }
 
         [Test]
+        public void DeserializeMergeFromString()
+        {
+            var testObjectDictionary = context.CakeContext.DeserializeYaml<Dictionary<string, TestMergeObject>>(SERIALIZED_YAML_MERGE_DATA);
+            AssertDictionaryMatchesTestMergeYaml(testObjectDictionary);
+        }
+
+        [Test]
         public void DeserializeMergeFromFile()
         {
             var file = new FilePath("testmerge.yaml");
 
             var testObjectDictionary = context.CakeContext.DeserializeYamlFromFile<Dictionary<string, TestMergeObject>>(file);
-         
-            Assert.IsNotNull(testObjectDictionary);
-            Assert.AreEqual(3, testObjectDictionary.Count);
-            Assert.AreEqual("item1", testObjectDictionary["default"].Item1);
-            Assert.AreEqual("item2", testObjectDictionary["default"].Item2);
+
+            AssertDictionaryMatchesTestMergeYaml(testObjectDictionary);
+        }
+        public void AssertDictionaryMatchesTestMergeYaml(Dictionary<string, TestMergeObject> testDictionary)
+        {
+            Assert.AreEqual(3, testDictionary.Count);
+            Assert.AreEqual("item1", testDictionary["default"].Item1);
+            Assert.AreEqual("item2", testDictionary["default"].Item2);
 
             // item1 and item 2 are inherited from &default
-            Assert.AreEqual("item1", testObjectDictionary["merged"].Item1);
-            Assert.AreEqual("item2", testObjectDictionary["merged"].Item2);
-            Assert.AreEqual("test item3", testObjectDictionary["merged"].Item3);
+            Assert.AreEqual("item1", testDictionary["merged"].Item1);
+            Assert.AreEqual("item2", testDictionary["merged"].Item2);
+            Assert.AreEqual("test item3", testDictionary["merged"].Item3);
 
-            Assert.AreEqual("nodef-item1", testObjectDictionary["nodefault"].Item1);
-            Assert.AreEqual("nodef-item2", testObjectDictionary["nodefault"].Item2);
-            Assert.AreEqual("nodef-item3", testObjectDictionary["nodefault"].Item3);
-          
+            Assert.AreEqual("nodef-item1", testDictionary["nodefault"].Item1);
+            Assert.AreEqual("nodef-item2", testDictionary["nodefault"].Item2);
+            Assert.AreEqual("nodef-item3", testDictionary["nodefault"].Item3);
         }
 
         [Test]
