@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using Cake.Core.IO;
+using System.Collections.Generic;
 
 namespace Cake.Yaml.Tests
 {
@@ -39,6 +40,12 @@ namespace Cake.Yaml.Tests
         }
 
         [Test]
+        public void DeserializeWithMergeToFile()
+        {
+
+        }
+
+        [Test]
         public void SerializeToFile ()
         {
             var obj = new TestObject ();
@@ -62,6 +69,29 @@ namespace Cake.Yaml.Tests
 
             Assert.IsNotNull (testObject);
             Assert.AreEqual ("Testing", testObject.Name);
+        }
+
+        [Test]
+        public void DeserializeMergeFromFile()
+        {
+            var file = new FilePath("testmerge.yaml");
+
+            var testObjectDictionary = context.CakeContext.DeserializeYamlFromFile<Dictionary<string, TestMergeObject>>(file);
+         
+            Assert.IsNotNull(testObjectDictionary);
+            Assert.AreEqual(3, testObjectDictionary.Count);
+            Assert.AreEqual("item1", testObjectDictionary["default"].Item1);
+            Assert.AreEqual("item2", testObjectDictionary["default"].Item2);
+
+            // item1 and item 2 are inherited from &default
+            Assert.AreEqual("item1", testObjectDictionary["merged"].Item1);
+            Assert.AreEqual("item2", testObjectDictionary["merged"].Item2);
+            Assert.AreEqual("test item3", testObjectDictionary["merged"].Item3);
+
+            Assert.AreEqual("nodef-item1", testObjectDictionary["nodefault"].Item1);
+            Assert.AreEqual("nodef-item2", testObjectDictionary["nodefault"].Item2);
+            Assert.AreEqual("nodef-item3", testObjectDictionary["nodefault"].Item3);
+          
         }
 
         [Test]
