@@ -18,13 +18,13 @@
 
       <dependencies>
          <dependency id="Cake.Core" version="0.7.0" />
-         <dependency id="YamlDotNet" version="3.7.0" />
+         <dependency id="YamlDotNet" version="[3.8.0]" />
       </dependencies>
    </metadata>
 
    <files>
       <file src="./Cake.Yaml/bin/Release/Cake.Yaml.dll" target="lib/net45" />
       <file src="./Cake.Yaml/bin/Release/Cake.Yaml.xml" target="lib/net45" />
-      <file src="./packages/YamlDotNet.3.7.0/lib/net35/YamlDotNet.dll" target="lib/net45" />      
+      <file src="./packages/YamlDotNet.3.8.0/lib/net35/YamlDotNet.dll" target="lib/net45" />
    </files>
 </package>

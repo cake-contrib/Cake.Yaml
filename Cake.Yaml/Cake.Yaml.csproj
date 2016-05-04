@@ -31,7 +31,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="YamlDotNet">
-      <HintPath>..\packages\YamlDotNet.3.7.0\lib\net35\YamlDotNet.dll</HintPath>
+      <HintPath>..\packages\YamlDotNet.3.8.0\lib\net35\YamlDotNet.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Core">
       <HintPath>..\packages\Cake.Core.0.7.0\lib\net45\Cake.Core.dll</HintPath>
