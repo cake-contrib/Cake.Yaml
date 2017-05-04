@@ -1,0 +1,12 @@
+﻿default: &default
+  Item1: item1
+  Item2: item2
+
+merged:
+  <<: *default
+  Item3: test item3
+
+nodefault:
+  Item1: nodef-item1
+  Item2: nodef-item2
+  Item3: nodef-item3

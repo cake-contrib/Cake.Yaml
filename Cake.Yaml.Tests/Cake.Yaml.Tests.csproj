@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Test.cs" />
+    <Compile Include="TestMergeObject.cs" />
     <Compile Include="TestObject.cs" />
     <Compile Include="FakeContext.cs" />
     <Compile Include="FakeCakeArguments.cs" />
@@ -51,11 +52,15 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="test.yaml" />
+    <None Include="TestMerge.Yaml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cake.Yaml\Cake.Yaml.csproj">
       <Project>{AC35C5AB-6E21-435E-BE15-77939DA20523}</Project>
       <Name>Cake.Yaml</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
 </Project>
