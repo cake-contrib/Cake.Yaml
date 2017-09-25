@@ -8,11 +8,11 @@ KeysAndValues:
   AnotherKey: AnotherValue
   Such: Wow
 Nested:
-  Value: 7.3
+  Value: 7
 Multiples:
 - Id: 1
-  Value: 14.6
+  Value: 14
 - Id: 2
-  Value: 29.2
+  Value: 29
 - Id: 3
-  Value: 58.4
+  Value: 58

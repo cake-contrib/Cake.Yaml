@@ -1,50 +1,31 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AC35C5AB-6E21-435E-BE15-77939DA20523}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Cake.Yaml</RootNamespace>
-    <AssemblyName>Cake.Yaml</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.6' ">1.6.1</NetStandardImplicitPackageVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <DocumentationFile>bin\Debug\Cake.Yaml.xml</DocumentationFile>
+
+  <PropertyGroup>
+    <PackageId>Cake.Yaml</PackageId>
+    <Title>Cake.Yaml</Title>
+    <Summary>YAML Serialization addon for cake build.</Summary>
+    <Description>Cake Build addon for YAML Serialization.</Description>
+    <PackageTags>Cake Script Build YAML</PackageTags>
+    <Authors>Redth</Authors>
+    <Owners>Redth</Owners>
+    <PackageProjectUrl>https://github.com/redth/Cake.Yaml</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/redth/Cake.Yaml/master/icon.png</PackageIconUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/redth/Cake.Yaml/master/LICENSE.md</PackageLicenseUrl>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <DocumentationFile>bin\Release\Cake.Yaml.xml</DocumentationFile>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.17.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.17.0\lib\net45\Cake.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="YamlDotNet">
-      <HintPath>..\packages\YamlDotNet.3.8.0\lib\net35\YamlDotNet.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Cake.Core" Version="0.22.0" />
+    <PackageReference Include="YamlDotNet" Version="4.2.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="YamlAliases.cs" />
-    <Compile Include="Namespaces.cs" />
+    <Folder Include="Properties\" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
+ 
 </Project>

@@ -16,20 +16,20 @@ namespace Cake.Yaml.Tests
             };
             Nested = new NestedTestObject {
                 Id = 0,
-                Value = 7.3
+                Value = 7
             };
             Multiples = new List<NestedTestObject> {
                 new NestedTestObject {
                     Id = 1,
-                    Value = 14.6
+                    Value = 14
                 },
                 new NestedTestObject {
                     Id = 2,
-                    Value = 29.2
+                    Value = 29
                 },
                 new NestedTestObject {
                     Id = 3,
-                    Value = 58.4
+                    Value = 58
                 }
             };
         }
@@ -52,7 +52,7 @@ namespace Cake.Yaml.Tests
         }
 
         public int Id { get;set; }
-        public double Value { get;set; }
+        public int Value { get;set; }
     }
 }
 

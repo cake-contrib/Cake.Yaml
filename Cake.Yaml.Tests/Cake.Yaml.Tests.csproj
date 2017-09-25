@@ -1,66 +1,32 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F60E237B-5678-4C84-99DB-47099E1E8041}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Cake.Yaml.Tests</RootNamespace>
-    <AssemblyName>Cake.Yaml.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.17.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.17.0\lib\net45\Cake.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Cake.Testing, Version=0.17.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Testing.0.17.1\lib\net45\Cake.Testing.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Cake.Core" Version="0.22.0" />
+    <PackageReference Include="Cake.Testing" Version="0.22.0" />
+    <PackageReference Include="YamlDotNet" version="4.2.1" />
+    <PackageReference Include="xunit" Version="2.3.0-beta5-build3769" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.0-beta5-build3769" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Test.cs" />
-    <Compile Include="TestMergeObject.cs" />
-    <Compile Include="TestObject.cs" />
-    <Compile Include="FakeContext.cs" />
-    <Compile Include="FakeCakeArguments.cs" />
+    <ProjectReference Include="..\Cake.Yaml\Cake.Yaml.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="test.yaml" />
-    <None Include="TestMerge.Yaml" />
+    <None Update="serialized.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="test.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestMerge.Yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cake.Yaml\Cake.Yaml.csproj">
-      <Project>{AC35C5AB-6E21-435E-BE15-77939DA20523}</Project>
-      <Name>Cake.Yaml</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
+
 </Project>

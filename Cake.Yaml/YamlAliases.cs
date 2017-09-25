@@ -9,7 +9,15 @@ using YamlDotNet.Core;
 namespace Cake.Yaml
 {
     /// <summary>
-    /// YAML related cake aliases.
+    /// <para>YAML related cake aliases.</para>
+    /// <para>
+    ///  In order to use aliases from this addin, you will need to also reference YamlDotNet as an addin.
+    ///  Here is what including Cake.Yaml in your script should look like:
+    /// <code>
+    /// #addin package:?Cake.Yaml
+    /// #addin package:?YamlDotNet&mp;version=4.2.1
+    /// </code>
+    /// </para>
     /// </summary>
     [CakeAliasCategory ("Yaml")]
     public static class YamlAliases
@@ -31,7 +39,7 @@ namespace Cake.Yaml
 
             using (var tr = File.OpenText(filename.MakeAbsolute(context.Environment).FullPath))
             {
-                var reader = new EventReader(new MergingParser(new Parser(tr)));
+                var reader = new MergingParser(new Parser(tr));
                 result = d.Deserialize<T>(reader);
             }
 
@@ -54,7 +62,7 @@ namespace Cake.Yaml
             var d = new YamlDotNet.Serialization.Deserializer ();
             using (var tr = new StringReader(yaml))
             {
-                var reader = new EventReader(new MergingParser(new Parser(tr)));
+                var reader = new MergingParser(new Parser(tr));
                 result = d.Deserialize<T>(reader);
             }
             return result;
@@ -73,8 +81,8 @@ namespace Cake.Yaml
         {
             var s = new YamlDotNet.Serialization.Serializer ();
 
-            using (var tw = new StreamWriter (filename.MakeAbsolute (context.Environment).FullPath))
-                s.Serialize (tw, instance);
+            using (var tw = new StreamWriter(File.Open(filename.MakeAbsolute(context.Environment).FullPath, FileMode.Create)))
+                s.Serialize(tw, instance);
         }
 
         /// <summary>
