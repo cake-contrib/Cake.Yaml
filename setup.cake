@@ -4,11 +4,12 @@ Environment.SetVariableNames();
 
 BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
-                            sourceDirectoryPath: Context.Environment.WorkingDirectory,
+                            sourceDirectoryPath: "./src",
                             title: "Cake.Yaml",
                             repositoryOwner: "redth",
                             repositoryName: "Cake.Yaml",
                             appVeyorAccountName: "redth",
+                            shouldRunDotNetCorePack: true,
                             shouldRunDupFinder: false,
                             shouldRunInspectCode: false);
 
