@@ -13,6 +13,18 @@ namespace Cake.Yaml.Tests
         FakeLog log;
         DirectoryPath testsDir;
 
+        private class FakeDataResolver : ICakeDataService
+        {
+            public void Add<TData>(TData value) where TData : class
+            {
+                throw new NotImplementedException();
+            }
+
+            public TData Get<TData>() where TData : class
+            {
+                throw new NotImplementedException();
+            }
+        }
 
         public FakeCakeContext ()
         {
@@ -28,7 +40,8 @@ namespace Cake.Yaml.Tests
             var registry = new WindowsRegistry ();
 
             var toolLocator = new ToolLocator(environment, new ToolRepository(environment), new ToolResolutionStrategy(fileSystem, environment, globber, new FakeConfiguration()));
-            context = new CakeContext(fileSystem, environment, globber, log, args, processRunner, registry, toolLocator);
+            var dataService = new FakeDataResolver(); 
+            context = new CakeContext(fileSystem, environment, globber, log, args, processRunner, registry, toolLocator, dataService);
             context.Environment.WorkingDirectory = testsDir;
         }
 
