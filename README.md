@@ -7,10 +7,10 @@ You can easily reference Cake.Yaml directly in your build script via a cake addi
 
 ```csharp
 #addin nuget:?package=Cake.Yaml
-#addin nuget:?package=YamlDotNet&version=4.2.1
+#addin nuget:?package=YamlDotNet&version=5.2.1
 ```
 
-NOTE: It's very important at this point in time to specify the `YamlDotNet` package *and* the version _4.2.1_ for it.
+NOTE: It's very important at this point in time to specify the `YamlDotNet` package *and* the version _5.2.1_ for it.
 
 ## Aliases
 
