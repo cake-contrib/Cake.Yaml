@@ -15,7 +15,7 @@ namespace Cake.Yaml
     ///  Here is what including Cake.Yaml in your script should look like:
     /// <code>
     /// #addin package:?Cake.Yaml
-    /// #addin package:?YamlDotNet&mp;version=4.2.1
+    /// #addin package:?YamlDotNet&amp;version=4.2.1
     /// </code>
     /// </para>
     /// </summary>
