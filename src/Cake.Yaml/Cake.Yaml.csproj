@@ -12,10 +12,12 @@
     <Description>Cake Build addon for YAML Serialization.</Description>
     <PackageTags>Cake Script Build YAML</PackageTags>
     <Authors>Redth</Authors>
-    <Owners>Redth</Owners>
-    <PackageProjectUrl>https://github.com/redth/Cake.Yaml</PackageProjectUrl>
+    <Owners>Redth,cake-contrib</Owners>
+    <PackageProjectUrl>https://github.com/cake-contrib/Cake.Yaml</PackageProjectUrl>
     <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/redth/Cake.Yaml/master/LICENSE.md</PackageLicenseUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/cake-contrib/Cake.Yaml.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

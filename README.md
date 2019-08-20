@@ -1,7 +1,7 @@
 # Cake.Yaml
 A set of aliases for http://cakebuild.net to help with YAML Serialization.
 
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/redth/Cake.Yaml)
+![AppVeyor](https://ci.appveyor.com/api/projects/status/3ttdasxutw5r8v7d/branch/master?svg=true)
 
 You can easily reference Cake.Yaml directly in your build script via a cake addin:
 
