@@ -1,5 +1,6 @@
 # Cake.Yaml
-A set of aliases for http://cakebuild.net to help with YAML Serialization.
+
+A set of aliases for [cakebuild.net](http://cakebuild.net) to help with YAML Serialization.
 
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/3ttdasxutw5r8v7d/branch/master?svg=true)
 
@@ -19,4 +20,5 @@ Please visit the Cake Documentation for a list of available aliases:
 [http://cakebuild.net/dsl/yaml](http://cakebuild.net/dsl/yaml)
 
 ## Apache License 2.0
-Apache Cake.Yaml Copyright 2015. The Apache Software Foundation This product includes software developed at The Apache Software Foundation (http://www.apache.org/).
+
+Apache Cake.Yaml Copyright 2015. The Apache Software Foundation This product includes software developed at [The Apache Software Foundation](http://www.apache.org/).
