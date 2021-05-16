@@ -12,7 +12,7 @@ BuildParameters.SetParameters(context: Context,
                             shouldRunDotNetCorePack: true,
                             shouldRunDupFinder: false,
                             shouldRunInspectCode: false,
-                            shouldRunGitVersion: true);
+                            shouldCalculateVersion: true);
 
 BuildParameters.PrintParameters(Context);
 
