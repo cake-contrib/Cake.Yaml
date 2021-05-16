@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <None Include="images/icon.png" Pack="true" PackagePath="images"/>
-    <PackageReference Include="Cake.Core" Version="0.33.0">
+    <PackageReference Include="Cake.Core" Version="1.0.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="YamlDotNet" Version="6.1.2" />
