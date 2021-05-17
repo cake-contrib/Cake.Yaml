@@ -14,13 +14,14 @@
     <Authors>Redth</Authors>
     <Owners>Redth,cake-contrib</Owners>
     <PackageProjectUrl>https://github.com/cake-contrib/Cake.Yaml</PackageProjectUrl>
-    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
+    <PackageIcon>images/icon.png</PackageIcon>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/cake-contrib/Cake.Yaml.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="images/icon.png" Pack="true" PackagePath="images"/>
     <PackageReference Include="Cake.Core" Version="0.33.0">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
