@@ -6,34 +6,31 @@ namespace Cake.Yaml.Tests
 {
     internal sealed class FakeCakeArguments : ICakeArguments
     {
-        private readonly Dictionary<string, string> _arguments;
+        private readonly Dictionary<string, List<string>> _arguments;
 
         /// <summary>
         /// Gets the arguments.
         /// </summary>
         /// <value>The arguments.</value>
-        public IReadOnlyDictionary<string, string> Arguments
-        {
-            get { return _arguments; }
-        }
+        public IReadOnlyDictionary<string, List<string>> Arguments => _arguments;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CakeArguments"/> class.
         /// </summary>
         public FakeCakeArguments()
         {
-            _arguments = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            _arguments = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
         }
 
         /// <summary>
         /// Initializes the argument list.
         /// </summary>
         /// <param name="arguments">The arguments.</param>
-        public void SetArguments(IDictionary<string, string> arguments)
+        public void SetArguments(IDictionary<string, List<string>> arguments)
         {
             if (arguments == null)
             {
-                throw new ArgumentNullException("arguments");
+                throw new ArgumentNullException(nameof(arguments));
             }
             _arguments.Clear();
             foreach (var argument in arguments)
@@ -58,11 +55,12 @@ namespace Cake.Yaml.Tests
         /// Gets an argument.
         /// </summary>
         /// <param name="name">The argument name.</param>
-        /// <returns>The argument value.</returns>
-        public string GetArgument(string name)
+        /// <returns>The argument values.</returns>
+        public ICollection<string> GetArguments(string name)
         {
-            return _arguments.ContainsKey(name)
-                ? _arguments[name] : null;
+            _arguments.TryGetValue(name, out List<string> value);
+            ICollection<string> collection = value;
+            return collection ?? Array.Empty<string>();
         }
     }
 }
