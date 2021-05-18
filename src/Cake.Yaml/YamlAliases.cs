@@ -14,8 +14,8 @@ namespace Cake.Yaml
     ///  In order to use aliases from this addin, you will need to also reference YamlDotNet as an addin.
     ///  Here is what including Cake.Yaml in your script should look like:
     /// <code>
-    /// #addin package:?Cake.Yaml
-    /// #addin package:?YamlDotNet&amp;version=4.2.1
+    /// #addin nuget:?package=Cake.Yaml
+    /// #addin nuget:?package=YamlDotNet&amp;version=6.1.2
     /// </code>
     /// </para>
     /// </summary>
