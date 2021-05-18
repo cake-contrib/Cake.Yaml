@@ -38,7 +38,7 @@ namespace Cake.Yaml.Tests
             var args = new FakeCakeArguments ();
             var registry = new WindowsRegistry ();
             var config = new Core.Configuration.CakeConfigurationProvider(fileSystem, environment).CreateConfiguration(testsDir, new Dictionary<string, string>());
-            var toolLocator = new ToolLocator(environment, new ToolRepository(environment), new ToolResolutionStrategy(fileSystem, environment, globber, new FakeConfiguration()));
+            var toolLocator = new ToolLocator(environment, new ToolRepository(environment), new ToolResolutionStrategy(fileSystem, environment, globber, new FakeConfiguration(), log));
             var processRunner = new ProcessRunner(fileSystem, environment, log, toolLocator, config);
             var dataService = new FakeDataResolver(); 
             context = new CakeContext(fileSystem, environment, globber, log, args, processRunner, registry, toolLocator, dataService, config);
