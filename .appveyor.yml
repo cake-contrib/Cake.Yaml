@@ -40,7 +40,7 @@ branches:
 #  Build Cache                    #
 #---------------------------------#
 cache:
-- tools -> recipe.cake, tools/packages.config
+- tools -> recipe.cake
 
 #---------------------------------#
 #  Skip builds for doc changes    #
