@@ -1,4 +1,4 @@
-#load nuget:?package=Cake.Recipe&version=1.0.0
+#load nuget:?package=Cake.Recipe&version=2.2.1
 
 Environment.SetVariableNames();
 
@@ -12,7 +12,7 @@ BuildParameters.SetParameters(context: Context,
                             shouldRunDotNetCorePack: true,
                             shouldRunDupFinder: false,
                             shouldRunInspectCode: false,
-                            shouldRunGitVersion: true);
+                            shouldCalculateVersion: true);
 
 BuildParameters.PrintParameters(Context);
 
