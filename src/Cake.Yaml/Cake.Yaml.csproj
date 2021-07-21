@@ -22,9 +22,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="images/icon.png" Pack="true" PackagePath="images"/>
+    <None Include="images/icon.png" Pack="true" PackagePath="images" />
     <PackageReference Include="Cake.Core" Version="1.0.0">
       <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="YamlDotNet" Version="6.1.2" />
   </ItemGroup>
