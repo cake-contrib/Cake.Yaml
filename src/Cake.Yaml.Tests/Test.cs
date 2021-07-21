@@ -86,7 +86,7 @@ namespace Cake.Yaml.Tests
 
             AssertDictionaryMatchesTestMergeYaml(testObjectDictionary);
         }
-        public void AssertDictionaryMatchesTestMergeYaml(Dictionary<string, TestMergeObject> testDictionary)
+        private void AssertDictionaryMatchesTestMergeYaml(Dictionary<string, TestMergeObject> testDictionary)
         {
             Assert.Equal(3, testDictionary.Count);
             Assert.Equal("item1", testDictionary["default"].Item1);
