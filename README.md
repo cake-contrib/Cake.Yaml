@@ -5,14 +5,14 @@ A set of aliases for [cakebuild.net](http://cakebuild.net) to help with YAML Ser
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/3ttdasxutw5r8v7d/branch/master?svg=true)
 [![License](http://img.shields.io/:license-mit-blue.svg)](./LICENSE)
 
-You can easily reference Cake.Yaml directly in your build script via a cake addin:
+You can easily reference Cake.Yaml directly in your build script via a Cake addin:
 
 ```csharp
-#addin nuget:?package=Cake.Yaml
-#addin nuget:?package=YamlDotNet&version=5.2.1
+#addin nuget:?package=Cake.Yaml&version=4.0.0
+#addin nuget:?package=YamlDotNet&version=6.1.2
 ```
 
-NOTE: It's very important at this point in time to specify the `YamlDotNet` package *and* the version _5.2.1_ for it.
+NOTE: It's very important at this point in time to specify the `YamlDotNet` package *and* the version _6.1.2_ for it.
 
 ## Aliases
 
