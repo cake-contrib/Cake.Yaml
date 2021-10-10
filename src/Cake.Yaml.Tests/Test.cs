@@ -9,7 +9,7 @@ namespace Cake.Yaml.Tests
     {
         FakeCakeContext context;
 
-        const string SERIALIZED_YAML_DATA = "Name: Testing\nItems:\n- One\n- Two\n- Three\nKeysAndValues:\n  Key: Value\n  AnotherKey: AnotherValue\n  Such: Wow\nNested:\n  Value: 7\nMultiples:\n- Id: 1\n  Value: 14\n- Id: 2\n  Value: 29\n- Id: 3\n  Value: 58\n";
+        const string SERIALIZED_YAML_DATA = "Name: Testing\nItems:\n- One\n- Two\n- Three\nKeysAndValues:\n  Key: Value\n  AnotherKey: AnotherValue\n  Such: Wow\nNested:\n  Id: 0\n  Value: 7\nMultiples:\n- Id: 1\n  Value: 14\n- Id: 2\n  Value: 29\n- Id: 3\n  Value: 58\n";
 
         string SERIALIZED_YAML = "";
 
