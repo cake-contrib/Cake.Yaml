@@ -1,9 +1,8 @@
-﻿using System;
-using Cake.Core.Annotations;
-using Cake.Core.IO;
-using Cake.Core;
-using System.IO;
+﻿using System.IO;
 using System.Text;
+using Cake.Core;
+using Cake.Core.IO;
+using Cake.Core.Annotations;
 using YamlDotNet.Core;
 
 namespace Cake.Yaml
@@ -14,12 +13,12 @@ namespace Cake.Yaml
     ///  In order to use aliases from this addin, you will need to also reference YamlDotNet as an addin.
     ///  Here is what including Cake.Yaml in your script should look like:
     /// <code>
-    /// #addin nuget:?package=Cake.Yaml
-    /// #addin nuget:?package=YamlDotNet&amp;version=6.1.2
+    /// #addin nuget:?package=Cake.Yaml&amp;version=x.y.z
+    /// #addin nuget:?package=YamlDotNet&amp;version=11.2.1
     /// </code>
     /// </para>
     /// </summary>
-    [CakeAliasCategory ("Yaml")]
+    [CakeAliasCategory("Yaml")]
     public static class YamlAliases
     {
         /// <summary>
