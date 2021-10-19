@@ -1,0 +1,18 @@
+﻿name: Testing
+items:
+- One
+- Two
+- Three
+keysAndValues:
+  Key: Value
+  AnotherKey: AnotherValue
+  Such: Wow
+nested:
+  value: 7
+multiples:
+- id: 1
+  value: 14
+- id: 2
+  value: 29
+- id: 3
+  value: 58
