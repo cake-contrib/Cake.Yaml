@@ -1,7 +1,8 @@
-﻿using Xunit;
-using System;
-using Cake.Core.IO;
+﻿using System;
 using System.Collections.Generic;
+using Cake.Core.IO;
+using YamlDotNet.Serialization.NamingConventions;
+using Xunit;
 
 namespace Cake.Yaml.Tests
 {
@@ -10,14 +11,17 @@ namespace Cake.Yaml.Tests
         FakeCakeContext context;
 
         const string SERIALIZED_YAML_DATA = "Name: Testing\nItems:\n- One\n- Two\n- Three\nKeysAndValues:\n  Key: Value\n  AnotherKey: AnotherValue\n  Such: Wow\nNested:\n  Id: 0\n  Value: 7\nMultiples:\n- Id: 1\n  Value: 14\n- Id: 2\n  Value: 29\n- Id: 3\n  Value: 58\n";
+        const string SERIALIZED_YAML_DATA_CAMEL_CASE = "name: Testing\nitems:\n- One\n- Two\n- Three\nkeysAndValues:\n  Key: Value\n  AnotherKey: AnotherValue\n  Such: Wow\nnested:\n  id: 0\n  value: 7\nmultiples:\n- id: 1\n  value: 14\n- id: 2\n  value: 29\n- id: 3\n  value: 58\n";
 
         string SERIALIZED_YAML = "";
+        string SERIALIZED_YAML_CAMEL_CASE = "";
 
         const string SERIALIZED_YAML_MERGE_DATA = "default: &default\n Item1: item1\n Item2: item2\n\nmerged:\n <<: *default\n Item3: test item3\n\nnodefault:\n Item1: nodef-item1\n Item2: nodef-item2\n Item3: nodef-item3\n";
 
         public YamlTests ()
         {
             SERIALIZED_YAML = SERIALIZED_YAML_DATA.Replace ("\n", Environment.NewLine);
+            SERIALIZED_YAML_CAMEL_CASE = SERIALIZED_YAML_DATA_CAMEL_CASE.Replace("\n", Environment.NewLine);
 
             context = new FakeCakeContext ();           
         }
@@ -36,6 +40,22 @@ namespace Cake.Yaml.Tests
 
             Assert.NotEmpty (yaml);
             Assert.Equal (SERIALIZED_YAML, yaml);
+        }
+
+        [Fact]
+        public void SerializeToStringUsingNamingConvention()
+        {
+            var obj = new TestObject();
+
+            var settings = new SerializeYamlSettings
+            {
+                NamingConvention = CamelCaseNamingConvention.Instance,
+            };
+
+            var yaml = context.CakeContext.SerializeYaml(obj, settings);
+
+            Assert.NotEmpty(yaml);
+            Assert.Equal(SERIALIZED_YAML_CAMEL_CASE, yaml);
         }
 
         [Fact]
@@ -60,6 +80,26 @@ namespace Cake.Yaml.Tests
         }
 
         [Fact]
+        public void SerializeToFileUsingNamingConvention()
+        {
+            var obj = new TestObject();
+
+            var file = new FilePath("./serialized_camelcase.yaml");
+
+            var settings = new SerializeYamlSettings
+            {
+                NamingConvention = CamelCaseNamingConvention.Instance,
+            };
+
+            context.CakeContext.SerializeYamlToFile(file, obj, settings);
+
+            var yaml = System.IO.File.ReadAllText(file.MakeAbsolute(context.CakeContext.Environment).FullPath);
+
+            Assert.NotEmpty(yaml);
+            Assert.Equal(SERIALIZED_YAML_CAMEL_CASE, yaml);
+        }
+
+        [Fact]
         public void DeserializeFromFile ()
         {
             var file = new FilePath ("test.yaml");
@@ -68,6 +108,22 @@ namespace Cake.Yaml.Tests
 
             Assert.NotNull (testObject);
             Assert.Equal ("Testing", testObject.Name);
+        }
+
+        [Fact]
+        public void DeserializeFromFileUsingNamingConvention()
+        {
+            var file = new FilePath("test_camelcase.yaml");
+
+            var settings = new DeserializeYamlSettings
+            {
+                NamingConvention = CamelCaseNamingConvention.Instance,
+            };
+
+            var testObject = context.CakeContext.DeserializeYamlFromFile<TestObject>(file, settings);
+
+            Assert.NotNull(testObject);
+            Assert.Equal("Testing", testObject.Name);
         }
 
         [Fact]
@@ -109,6 +165,20 @@ namespace Cake.Yaml.Tests
 
             Assert.NotNull (testObject);
             Assert.Equal ("Testing", testObject.Name);
+        }
+
+        [Fact]
+        public void DeserializeFromStringUsingNamingConvention()
+        {
+            var settings = new DeserializeYamlSettings
+            {
+                NamingConvention = CamelCaseNamingConvention.Instance,
+            };
+
+            var testObject = context.CakeContext.DeserializeYaml<TestObject>(SERIALIZED_YAML_CAMEL_CASE, settings);
+
+            Assert.NotNull(testObject);
+            Assert.Equal("Testing", testObject.Name);
         }
     }
 }
