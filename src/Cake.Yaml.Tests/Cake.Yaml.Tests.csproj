@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net50</TargetFrameworks>
+    <TargetFrameworks>net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="1.0.0" />
-    <PackageReference Include="Cake.Testing" Version="1.0.0" />
+    <PackageReference Include="Cake.Core" Version="2.0.0" />
+    <PackageReference Include="Cake.Testing" Version="2.0.0" />
     <PackageReference Include="YamlDotNet" version="11.2.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
