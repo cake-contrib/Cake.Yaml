@@ -62,6 +62,11 @@ namespace Cake.Yaml.Tests
             ICollection<string> collection = value;
             return collection ?? Array.Empty<string>();
         }
+
+        public IDictionary<string, ICollection<string>> GetArguments()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
