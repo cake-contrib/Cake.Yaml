@@ -2,13 +2,12 @@
 
 A set of aliases for [cakebuild.net](https://cakebuild.net) to help with YAML Serialization.
 
-![AppVeyor](https://ci.appveyor.com/api/projects/status/3ttdasxutw5r8v7d/branch/master?svg=true)
 [![License](https://img.shields.io/:license-mit-blue.svg)](./LICENSE)
 
 You can easily reference Cake.Yaml directly in your build script via a Cake addin:
 
 ```csharp
-#addin nuget:?package=Cake.Yaml&version=5.0.0
+#addin nuget:?package=Cake.Yaml&version=6.0.0
 #addin nuget:?package=YamlDotNet&version=12.3.1
 ```
 
