@@ -8,7 +8,7 @@ A set of aliases for [cakebuild.net](https://cakebuild.net) to help with YAML Se
 You can easily reference Cake.Yaml directly in your build script via a Cake addin:
 
 ```csharp
-#addin nuget:?package=Cake.Yaml&version=4.0.0
+#addin nuget:?package=Cake.Yaml&version=5.0.0
 #addin nuget:?package=YamlDotNet&version=12.3.1
 ```
 
