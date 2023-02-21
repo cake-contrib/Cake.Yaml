@@ -1,11 +1,12 @@
-#!/bin/bash
-SCRIPT_NAME="recipe.cake"
+#!/usr/bin/env bash
+set -euox pipefail
 
-echo "Restoring .NET Core tools"
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_NOLOGO=1
+
 dotnet tool restore
 
-echo "Bootstrapping Cake"
-dotnet cake $SCRIPT_NAME --bootstrap
-
-echo "Running Build"
-dotnet cake $SCRIPT_NAME "$@"
+dotnet cake recipe.cake "$@"
