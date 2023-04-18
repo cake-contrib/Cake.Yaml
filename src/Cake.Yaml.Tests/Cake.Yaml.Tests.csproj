@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="3.0.0" />
     <PackageReference Include="Cake.Testing" Version="3.0.0" />
-    <PackageReference Include="YamlDotNet" version="13.0.1" />
+    <PackageReference Include="YamlDotNet" version="13.1.0" />
     <PackageReference Include="xunit" Version="2.4.2" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
       <PrivateAssets>all</PrivateAssets>
